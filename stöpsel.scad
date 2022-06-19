@@ -1,49 +1,29 @@
 
 module basePlug()
 {
-linear_extrude(22)
-polygon([
-[0,0], 
-[15,0],
-[15,2],
-[14,3],
-[14,4],
-[15,5],
-[14,10],
-[1,10],
-[0,5],
-[1,4],
-[1,3],
-[0,2]
-]);
-};
-
-module aussparung()
-{
-linear_extrude(15)
-polygon([
-[0,2],
-[1,3],
-[1,4],
-[0,5]
-]);
-};
-
-module nuten()
-{
- union(){
-translate([15,0,0])
-    rotate([0,-90,0])
-     aussparung();
-translate([0,0,22])
-    rotate([0,90,0])
-    aussparung();
- }
+    difference(){
+        translate([0,12,0])
+        rotate([90,0,0])
+        linear_extrude(12)
+        polygon([
+        [0,0],
+        [0,2],
+        [1,3],
+        [1,4],
+        [0,5],
+        [1,10],
+        [21,10],
+        [22,5],
+        [21,4],
+        [21,3],
+        [22,2],
+        [22,0],
+        [0,0]
+        ]);
+        translate([3,2,2])
+        cube([16,8,8]);
+    };
 };
 
 
-polygon([
-[0,5],
-[1,10],
-[0,10]
-]);
+    basePlug();
